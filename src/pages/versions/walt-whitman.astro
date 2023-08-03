@@ -1,0 +1,22 @@
+---
+
+import PageLayout from '../../layouts/PageLayout_USLetter.astro';
+
+//import your styles and data
+import '../../styles/style-template-scss.scss';
+import data from '../../../public/data/walt_whitman.json';
+
+//if greater then 0 - splits the content to a second page
+const splitSectionIndex = -1;
+
+const pageTitle = data.title;
+
+//add class id for each page container to scope styles
+
+const styleScopeId = "scopeID";
+
+
+---
+<PageLayout title={pageTitle} styleScope={styleScopeId} splitSectionIndex={splitSectionIndex} jsonData={JSON.stringify(data)}>
+    
+</PageLayout>

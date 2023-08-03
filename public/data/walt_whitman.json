@@ -1,0 +1,57 @@
+{
+    "title": "Curriculum vitae",
+    "sections": [
+        {
+            "title": "Information",
+            "content": [
+              {"contentText": "Personal Information"},
+              {"contentObjectList": [
+                {"Name": "Walter Whitman Jr."},
+                {"Birth": "31. May, 1819 in Huntington/New York, U.S."},
+                {"Adress": "Camden, New Jersey, U.S."},
+                {"Contact":"info@waltwhitmaninitiative.org"}
+              ]},
+              
+              {"contentText": 
+                "Happiness is anywhere, everywhere. It can be in the work that you do, in the people that you have, or simply in the environment where you live. But most important, it is inside your heart – where freedom and compassion collide."
+              },
+              
+              {"contentHTML": "<img src='/assets/walt-whitman-01.jpg' class='img-avatar'/>"}
+    
+    
+            ]
+          },
+      {
+        "title": "Experience",
+        "content": [
+          {"contentList": [
+            "<h3>Educator:</h3>in various parts of Long Island",
+            "<h3>Long-Islander:</h3>publisher, editor, pressman, and distributor",
+            "<h3>Newspaper editor:</h3>at New World, Aurora and Brooklyn Eagle",
+            "<h3>Freelance fiction and Poetry:</h3>in various periodicals",
+            "<h3>since 1850:</h3>Poet"
+            
+          ]}
+        ]
+      },
+      {
+        "title": "Section 3",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      },
+      {
+        "title": "Section 4",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      },
+      {
+        "title": "Section 5",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      }
+    ],
+    "version": "Here we go..."
+}

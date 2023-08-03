@@ -1,0 +1,103 @@
+---
+
+import PlainTextRender from '../../components/PlainTextRender.astro';
+
+
+
+
+---
+
+<script>
+    import data from '../../../public/data/private/fr_std_data.json';
+
+    function strip(html:string){
+        let doc = new DOMParser().parseFromString(html, 'text/html');
+        return doc.body.textContent || "";
+    }
+    let allContent:any[] = [];
+
+    data.sections.map((section) => {
+        section.content.map((contentItem:any) => { 
+            let key = Object.keys(contentItem)[0];
+            let value:any = Object.values(contentItem)[0];
+
+            switch(key) {
+                case 'contentText':
+                    allContent.push(value);
+                    break;
+                case 'contentHTML':
+                    var stripped = strip(value);
+                    if(stripped.length > 0)
+                        allContent.push(stripped);
+                    break;
+                case 'contentList':
+                    var listStr = '';
+                    value.map((listItem:string) => {
+                        
+                        var stripped = strip(listItem);
+                        if(stripped.length > 0)
+                            listStr += stripped + '\n';
+                        });
+                    allContent.push(listStr);
+                    break;
+                case 'contentObjectList':
+                    var listStr = '';
+                    value.map((objItem:any) => {
+                        listStr += Object.keys(objItem)[0] + ':' + Object.values(objItem)[0] + '\n';
+                    });
+                    allContent.push(listStr);
+                    break;
+
+
+            }
+            
+            
+        });
+
+        let area = document.getElementById('textarea');
+        if(area) {
+            (area as HTMLTextAreaElement).value = allContent.join('\n\n');
+        }
+        
+    });
+</script>
+<style>
+    html, body {
+        margin:0;
+        padding:1em;
+        box-sizing: border-box;
+    }
+    html {
+        height: 100%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        
+        
+    }
+
+    textarea {
+        width: 75%;
+        height: 100%;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>PlainText</title>
+        
+	</head>
+	<body>
+		<a href="/">HOME</a>
+        <textarea id="textarea"></textarea>
+    </body>
+</html>

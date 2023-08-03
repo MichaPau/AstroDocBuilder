@@ -1,0 +1,82 @@
+#playground {
+
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1em;
+    line-height: 1.4em;;
+    max-height: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    // background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('/assets/Cairo_01.png');
+
+    background: linear-gradient(rgba(11, 184, 236, 0.2) 50%, rgba(11, 184, 236, 0.4), rgba(11, 184, 236, 0.7)), url('/assets/Cairo_04_25p.png');
+    //background: url('/assets/Cairo_04_25p.png');
+
+   
+    
+    h1 {
+        color: brown;
+        font-size: 2rem;
+    }
+    h2 {
+        color:darkorange;
+        font-size: 1.5rem;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    
+    .span-style {
+        color: rgb(20, 50, 90);
+        font-weight: bold;
+    }
+    .section-1 {
+        p {
+            margin-top: 1em;
+        }
+    }
+    // section[class^='section']
+    section {
+        display: grid;
+        gap: 0.5em;
+        margin-bottom: 1em;
+
+        h2 {
+            border-bottom: 2px solid deepskyblue;
+            margin-bottom: 0.25em;
+        }
+        #objectlist-container {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+
+            li {
+                
+                display: flex;
+                width: 100%;
+                
+                #key-cell {
+                    text-align: right;
+                    
+                    width: 10em;
+                }
+                #value-cell {
+                    text-align: left;
+                  
+                }
+                #seperator {
+                    margin-left: 0.5em; 
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
+}

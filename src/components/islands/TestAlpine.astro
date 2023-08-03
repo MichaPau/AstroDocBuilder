@@ -1,0 +1,19 @@
+
+---
+
+---
+<div
+    x-cloak
+    x-data="{pages: [], 'isLoading': true}"
+    x-init="fetch('/data/page_config.json')
+    .then(response => response.json())
+    .then(response => { pages = response; isLoading = false; console.log(response); })"
+>
+
+<ul x-show="!isLoading">
+    <template x-for="page in pages">
+        <li x-text="page.title"></li>
+    </template>
+</ul>
+</div>
+   

@@ -1,0 +1,28 @@
+---
+const { itemJson } = Astro.props;
+
+const itemObj = JSON.parse(itemJson);
+---
+
+{itemObj.contentHTML &&
+    <div id="contenthtml-container" set:html={itemObj.contentHTML}></div>
+}
+{itemObj.contentList &&
+     <ul id="contentlist-container">
+     {itemObj.contentList.map((item:any) => 
+         <li set:html={item}></li>
+     )}
+     </ul>
+
+ }
+ {itemObj.contentObjectList &&
+     <ul id="objectlist-container">
+     {itemObj.contentObjectList.map((obj:any) => 
+         <li><div id="key-cell">{Object.keys(obj)[0]}</div><div id="seperator">:</div><div id="value-cell">{Object.values(obj)[0]}</div></li>
+     )}
+     </ul>
+
+ }
+ {itemObj.contentText &&
+     <div id="contenttext-container">{itemObj.contentText}</div>
+}

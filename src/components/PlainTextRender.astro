@@ -1,0 +1,26 @@
+---
+const { itemJson } = Astro.props;
+
+const itemObj = JSON.parse(itemJson);
+---
+
+{itemObj.contentHTML &&
+    itemObj.contentHTML + '\n\n'
+}
+{itemObj.contentList &&
+    itemObj.contentList.map((item:any) => 
+         item + '\n'
+     )
+     
+ }
+ {itemObj.contentObjectList &&
+    
+     itemObj.contentObjectList.map((obj:any) => 
+         Object.keys(obj)[0]+':'+Object.values(obj)[0]+'\n'
+     )
+   
+
+ }
+ {itemObj.contentText &&
+     itemObj.contentText +'\n\n'
+}

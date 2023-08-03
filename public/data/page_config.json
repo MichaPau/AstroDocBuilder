@@ -1,0 +1,50 @@
+[
+    {
+        "id": "text_area_page",
+        "title": "Spell check text area",
+        "route": "/versions/text_area_page",
+        "imgurl": "",
+        "description": "",
+        "order": 5
+    },
+    {
+        "id": "walt-whitman",
+        "title": "walt-whitman",
+        "route": "/versions/walt-whitman",
+        "imgurl": "",
+        "description": "",
+        "order": 0
+    },
+    {
+        "id": "playground",
+        "title": "playground long title",
+        "route": "/versions/playground",
+        "imgurl": "./assets/thumbnails/playground.png",
+        "description": "",
+        "order": 4
+    },
+    {
+        "id": "en_minmal_std",
+        "title": "en_minmal_std",
+        "route": "/versions/private/en_minmal_std",
+        "imgurl": "./assets/thumbnails/en_minmal_std.png",
+        "description": "",
+        "order": 1
+    },
+    {
+        "id": "fr_minmal_std",
+        "title": "fr_minmal_std",
+        "route": "/versions/private/fr_minmal_std",
+        "imgurl": "./assets/thumbnails/fr_minmal_std.png",
+        "description": "",
+        "order": 2
+    },
+    {
+        "id": "en_version2",
+        "title": "en_version2",
+        "route": "/versions/private/en_version2",
+        "imgurl": "./assets/thumbnails/en_version2.png",
+        "description": "",
+        "order": 3
+    }
+]

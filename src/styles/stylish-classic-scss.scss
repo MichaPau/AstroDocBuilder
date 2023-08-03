@@ -1,0 +1,213 @@
+page:nth-child(1) {
+    padding: 1em;
+}
+
+#print-container > page:nth-child(1) > #en2 {
+   display: grid;
+   grid-template-columns: 5cm 1fr;
+   grid-template-rows: auto max-content max-content max-content 1fr;
+   grid-auto-rows: 1fr;
+   
+   height: 100%;
+   align-items: start;
+   justify-items: start;
+   grid-gap: 1.5em;
+
+    // background: linear-gradient(
+    //     to right,
+    //     gainsboro 50mm,
+    //     white 50mm 51mm,
+    //     LightGoldenRodYellow 51mm 100%
+
+    // );
+   .section-1 {
+
+        grid-row: 1 / -1;
+        grid-column: 1;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-self: flex-start;
+        align-items: center;
+        min-height: 100%;
+
+        padding-top: 1.5em;
+
+        background: linear-gradient(0deg, #08203e, #557c93);
+
+        > h2 {
+            display: none;
+        }
+        > * {
+            order: 2;
+            text-align: center;
+        }
+        *:has(.img-avatar) {
+            display: inline-block;
+            order: 1;
+        }
+        .img-avatar {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            clip-path: polygon(0% 20%, 33% 1%, 60% 0%, 100% 50%, 60% 100%, 36% 100%, 0% 80%);
+        }
+
+        > div:first-of-type {
+            font-weight: bold;
+        }
+        #objectlist-container {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+          
+
+            li {
+                
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                
+                #key-cell {
+                    text-align: center;
+                    font-weight: bold;
+                    text-decoration: underline dashed;
+                    
+                }
+                #value-cell {
+                    text-align: center;
+                    margin-bottom: 0.5em;
+                    
+                }
+                #seperator {
+                   display: none;
+                }
+            }
+        }
+    }
+
+    .section-3 {
+        #objectlist-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // border: 2px dashed black;
+
+            li {
+                width: auto;
+                display: flex;
+                #key-cell {
+                    text-align: right;
+                    width: 40%;
+                }
+                #value-cell {
+                    text-align: left;
+                    width: auto;
+                  
+                }
+                #seperator {
+                    margin-left: 0.5em; 
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
+    section {
+        grid-row: auto;
+        grid-column: 2;
+        justify-self: start;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        // height: auto;
+    }
+}
+
+#print-container > page:nth-child(2) > #en2 {
+    h1 {
+        color: green;
+        font-size: 2rem;
+    }
+    h2 {
+        color:firebrick;
+        font-size: 1.5rem;
+    }
+}
+
+#en2 {
+
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1em;
+    line-height: 1.4em;;
+    max-height: 100%;
+
+    overflow: hidden;
+
+    
+    h1 {
+        color: brown;
+        font-size: 2rem;
+    }
+    h2 {
+        color:darkorange;
+        font-size: 1.5rem;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    
+    
+
+    // section[class^='section']
+    // section {
+    //     display: grid;
+    //     gap: 0.5em;
+    //     margin-bottom: 1em;
+
+    //     h2 {
+    //         border-bottom: 2px solid deepskyblue;
+    //         margin-bottom: 0.25em;
+    //     }
+    //     #objectlist-container {
+    //         display: flex;
+    //         flex-direction: column;
+    //         margin: 0;
+    //         padding: 0;
+    //         width: 100%;
+
+    //         li {
+                
+    //             display: flex;
+    //             width: 100%;
+                
+    //             #key-cell {
+    //                 text-align: right;
+                    
+    //                 width: 10em;
+    //             }
+    //             #value-cell {
+    //                 text-align: left;
+                  
+    //             }
+    //             #seperator {
+    //                 margin-left: 0.5em; 
+    //                 margin-right: 0.5em;
+    //             }
+    //         }
+    //     }
+    // }
+}

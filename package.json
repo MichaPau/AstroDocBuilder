@@ -1,0 +1,33 @@
+{
+  "name": "cv-builder-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "build2": "astro build && preview_background && node ./scripts/test.js",
+    "preview": "astro preview",
+    "preview_background": "astro preview &",
+    "build3": "npm-run-all -s echo-placeholder -p -r preview puppetter-task -s kill",
+    "kill": "@powershell \"Get-Process | Where Name -Like \"node*\" | Stop-Process\"",
+    "astro": "astro",
+    "puppetter-task": "node ./scripts/test.js",
+    "echo-placeholder": "echo placeholder",
+    "pretest": "echo pre-test",
+    "build-preview": "npm-run-all -s build preview",
+    "posttest": "echo postttest"
+  },
+  "dependencies": {
+    "@astrojs/alpinejs": "^0.2.2",
+    "@astrojs/lit": "^2.1.0",
+    "@webcomponents/template-shadowroot": "^0.2.1",
+    "astro": "^2.8.3",
+    "lit": "^2.7.6",
+    "puppeteer": "^20.8.2",
+    "sass": "^1.63.6"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

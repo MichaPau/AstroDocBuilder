@@ -1,0 +1,85 @@
+html {
+    box-sizing: border-box;
+    font-size: 11pt; }
+  
+  body {
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: "Space Mono", monospace; */
+    font-weight: 400;
+    line-height: 1.6rem;
+  }
+  .page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1em;
+  }
+  .a-header {
+      text-decoration: none;
+      color: black;
+      font-size: 1.2em;
+      padding:0.25em;
+  }
+  .a-header:hover {
+    background-color: whitesmoke;
+  }
+  
+  @media print {
+    body, page {
+      margin: 0 !important;
+      box-shadow: none!important; 
+      border: none!important;
+    } 
+     
+
+    body {
+      visibility: hidden;
+    }
+
+    #print-container {
+      visibility: visible;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  
+  @page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0;
+  }
+  .heading-primary {
+    text-align: center; }
+  
+  
+  page[size="letter"] {
+    display: block;
+    width: 8.5in;
+    height: 11in;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background: white;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    margin-top: 0.5cm;
+   
+    padding: 0.5rem;
+  
+    /* grid-gap: 0.25rem; */
+    
+  }
+
+  /*Default styles*/
+  body * {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul, ol, li {
+    list-style: none;
+    
+  }

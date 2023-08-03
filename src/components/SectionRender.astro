@@ -1,0 +1,19 @@
+---
+import SectionItem from './SectionRenderItem.astro'
+const { sectionJson, sectionIndex} = Astro.props;
+
+const section = JSON.parse(sectionJson);
+
+const sectionClass = "section-" + sectionIndex;
+
+
+---
+<section class:list={[sectionClass, section.classList]}>
+    <h2>{section.title}</h2>
+    {section.content.map((contentItem:any) => 
+        <SectionItem itemJson={JSON.stringify(contentItem)}></SectionItem>
+    )} 
+    {section.footnote && <p id="footnote">{section.footnote}</p>}
+</section>
+
+    

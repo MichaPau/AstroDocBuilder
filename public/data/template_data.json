@@ -1,0 +1,47 @@
+{
+    "title": "Curriculum vitae",
+    "sections": [
+      {
+        "title": "Section 1",
+        "classList": "extraClass",
+        "content": [
+          {"contentText": "Simple text inside a div tag"},
+          {"contentHTML": "<span class='span-style'>HTML injected like innerHTML</span>"},
+          {"contentList": [
+            "1. Creates a list from the array <ul><li></li></ul>",
+            "2. Text can be HTML (like contentHTML)"
+            
+          ]},
+          {"contentObjectList": [
+            {"Key1": "Value1"},
+            {"Kay2": "Value2"}
+          ]}
+        ]
+      },
+      {
+        "title": "Section 2",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      },
+      {
+        "title": "Section 3",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      },
+      {
+        "title": "Section 4",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      },
+      {
+        "title": "Section 5",
+        "content": [
+            {"contentHTML":"<span>content</span>"}
+        ]
+      }
+    ],
+    "version": "Here we go..."
+}

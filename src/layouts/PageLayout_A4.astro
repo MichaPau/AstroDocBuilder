@@ -1,0 +1,64 @@
+---
+import SectionRender from '../components/SectionRender.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+import "../styles/page-styles-A4.css";
+
+export interface Props {
+	title: string;
+    styleScope: string;
+    splitSectionIndex: number;
+    jsonData:string
+}
+
+const { title, styleScope, splitSectionIndex, jsonData } = Astro.props;
+
+const data = JSON.parse(jsonData);
+
+let page1:any, page2:any;
+
+if (splitSectionIndex > 0) {
+    page1 = data.sections.slice(0, splitSectionIndex);
+    page2 = data.sections.slice(splitSectionIndex);
+} else {
+    page1 = data.sections;
+    page2 = [];
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <!-- <link rel="stylesheet" href="/styles/page-styles.css" /> -->
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        
+	</head>
+    
+	<body>
+		<PageHeader/>
+		<div id="print-container">
+            <page size="A4" id="page1">
+                <div id={styleScope}>
+                    {page1.map((section:any, index:number) => 
+                        <SectionRender sectionJson={JSON.stringify(section)} sectionIndex={(index+1)}></SectionRender>  
+                    )}
+                </div>
+            </page>
+            {splitSectionIndex > 0 &&
+            <page size="A4" id="page2">
+                <div id={styleScope}>
+                    {page2.map((section:any, index:number) => 
+                        <SectionRender sectionJson={JSON.stringify(section)} sectionIndex={(splitSectionIndex+index+1)}></SectionRender>  
+                    )}
+                </div>
+            </page>
+            }
+		</div>
+		
+	</body>
+</html>

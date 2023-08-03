@@ -1,0 +1,116 @@
+---
+
+
+import Layout from '../layouts/Layout.astro';
+//import Card from '../components/Card.astro';
+
+// import { PageNavigation } from '../components/islands/PageNavigation';
+// import { SimpleGreeting } from '../components/islands/SimpleGreeting';
+// import TestAlpine from '../components/islands/TestAlpine.astro';
+// import { SimpleGreeting } from '../components/islands/simple-greeting.js';
+//import { MyCounter } from '../components/islands/my-counter.js';
+
+
+//import '../components/extern/Card.js';
+
+import pages from '../../public/data/page_config.json';
+pages.sort((a, b) => a.order > b.order ? 1 : -1);
+
+// pages.map((page) => {
+// 	const page_name = page.route.split('/').at(-1);
+// 	const img_src = './assets/thumbnails/'+ page_name + '.png';
+// 	page.imgurl = img_src;
+// });
+
+const title = "CV Template Builder";
+
+
+// use a `type`
+
+
+import {ImageCard} from '../components/extern/ImageCard';
+
+
+
+
+---
+
+<Layout title={title}>
+	<main>
+		<h1>{title}</h1>
+		<ul class="link-card-grid">
+			{pages.map((item) => 
+				// @ts-expect-error
+				<ImageCard _id={item.id} title={item.title} bodyText={item.description} link={item.route} imgUrl={item.imgurl} client:load/>
+			)}
+		</ul>
+		
+		
+		<!-- <SimpleGreeting client:load/> -->
+		<!-- <TestAlpine/> -->
+		<!-- <PageNavigation client:load/> -->
+		
+		<!-- <ul role="list" class="link-card-grid">
+			{pages.map((page:any) => (
+			<Card id={page.id} href={page.route} title={page.title} body={page.description !== '' ? page.description : "No description found" }>
+				
+			</Card>
+			))}
+			
+		</ul> -->
+	</main>
+</Layout>
+
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	body {
+		font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif;
+	}
+	
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width:75%;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.link-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+            gap: 1rem;
+            padding: 0;
+        }
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	
+</style>
