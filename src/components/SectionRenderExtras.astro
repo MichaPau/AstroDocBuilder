@@ -1,0 +1,48 @@
+---
+
+import SectionItem from './SectionRenderItem.astro';
+import SocialMediaList from './SocialMediaList.astro';
+const { sectionJson, sectionIndex, extras} = Astro.props;
+
+const section = JSON.parse(sectionJson);
+
+const sectionClass = "section-" + sectionIndex;
+
+type AstroComponent = (props?: Record<string, unknown>) => any;
+
+interface Props {
+    sectionJson: string;
+    sectionIndex: number;
+    extras: Array<any>;
+}
+
+
+const components = {
+   SocialMediaList,
+};
+---
+<section class:list={[sectionClass, section.classList]}>
+    <h2>{section.title}</h2>
+   
+    {section.content.map((contentItem:any, index:number) => {
+        return <SectionItem itemJson={JSON.stringify(contentItem)}></SectionItem>
+    })}
+    {extras.map((extra:any) => {
+        switch(extra.type) {
+            case "image":
+                return <div id="extrahtml-container" set:html={extra.content}></div>;
+                break;
+            case "component":
+                const id = extra.componentId;
+                const Component: AstroComponent = components[id as keyof AstroComponent];
+                return <Component data={extra.data} id="extracomp-container"/>;
+                break;
+
+            
+        }
+    })}
+
+    {section.footnote && <p id="footnote">{section.footnote}</p>}
+</section>
+
+    

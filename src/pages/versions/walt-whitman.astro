@@ -11,12 +11,23 @@ const splitSectionIndex = -1;
 
 const pageTitle = data.title;
 
+const info = {
+    dataFile: "walt_whitman.json",
+    style: "style-template-scss"
+}
+
 //add class id for each page container to scope styles
 
 const styleScopeId = "scopeID";
 
 
 ---
-<PageLayout title={pageTitle} styleScope={styleScopeId} splitSectionIndex={splitSectionIndex} jsonData={JSON.stringify(data)}>
+<PageLayout 
+    title={pageTitle} 
+    styleScope={styleScopeId} 
+    splitSectionIndex={splitSectionIndex} 
+    jsonData={JSON.stringify(data)} 
+    info={info}
+>
     
 </PageLayout>

@@ -8,10 +8,11 @@ export interface Props {
 	title: string;
     styleScope: string;
     splitSectionIndex: number;
-    jsonData:string
+    jsonData:string;
+    info: {dataFile: string, style:string};
 }
 
-const { title, styleScope, splitSectionIndex, jsonData } = Astro.props;
+const { title, styleScope, splitSectionIndex, jsonData, info } = Astro.props;
 
 const data = JSON.parse(jsonData);
 
@@ -40,7 +41,7 @@ if (splitSectionIndex > 0) {
 	</head>
     
 	<body>
-		<PageHeader/>
+		<PageHeader info={info}/>
 		<div id="print-container">
             <page size="letter" id="page1">
                 <div id={styleScope}>

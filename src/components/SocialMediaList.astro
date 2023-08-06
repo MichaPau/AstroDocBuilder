@@ -1,0 +1,45 @@
+---
+interface Props {
+    data: Array<{platform: string, link:string}>;
+    id: string;
+}
+
+const {data, id} = Astro.props; 
+
+type Dict = { [key: string]: string };
+
+const imgPath:Dict = {
+    youtube: "/public/assets/youtube.svg",
+    stackoverflow: "/public/assets/stack-overflow.svg",
+    github: "/public/assets/github.svg",
+
+}
+---
+<div id={id}>
+<ul class="media-list">
+    {data.map((item) => (
+        <li class="media-item">
+            <div><img src={imgPath[item.platform]}></div>
+            <div>{item.link}</div>
+        </li>
+    ))}
+</ul>
+</div>
+
+<style>
+    .media-list {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8em;
+      
+    }
+    .media-item {
+        display:flex;
+        flex-direction: row;
+        gap: 0.25em;
+    }
+
+    img {
+        width: 1em;
+    }
+</style>

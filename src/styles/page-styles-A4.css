@@ -9,22 +9,7 @@ html {
     line-height: 1.6rem;
   }
   
-  .page-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 1em;
-  }
-  .a-header {
-      text-decoration: none;
-      color: black;
-      font-size: 1.2em;
-      padding:0.25em;
-  }
-  .a-header:hover {
-    background-color: whitesmoke;
-  }
+  
   @media print {
     body, page {
       margin: 0 !important;

@@ -62,6 +62,11 @@
             grid-row: 2 / 6;
             padding: 0.25em;
         }
+        #extrahtml-container:has(img) {
+            grid-column: 2;
+            grid-row: 2 / 6;
+            padding: 0.25em;
+        }
         // .img-avatar {
         //     display: block;
         //     width: 100%;

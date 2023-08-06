@@ -1,5 +1,6 @@
 ---
 import SectionRender from '../components/SectionRender.astro';
+import SectionRenderExtras from '../components/SectionRenderExtras.astro';
 import PageHeader from '../components/PageHeader.astro';
 
 import "../styles/page-styles-A4.css";
@@ -8,10 +9,11 @@ export interface Props {
 	title: string;
     styleScope: string;
     splitSectionIndex: number;
-    jsonData:string
+    jsonData:string;
+    info: {dataFile: string, style:string};
 }
 
-const { title, styleScope, splitSectionIndex, jsonData } = Astro.props;
+const { title, styleScope, splitSectionIndex, jsonData, info } = Astro.props;
 
 const data = JSON.parse(jsonData);
 
@@ -24,6 +26,9 @@ if (splitSectionIndex > 0) {
     page1 = data.sections;
     page2 = [];
 }
+
+// console.log(data.sections[0].extras);
+// {section.extras ? <SectionRenderExtras sectionJson={JSON.stringify(section)} sectionIndex={(index+1)} extras={section.extras}></SectionRenderExtras> : <SectionRender sectionJson={JSON.stringify(section)} sectionIndex={(index+1)}></SectionRender>}
 ---
 
 <!DOCTYPE html>
@@ -40,13 +45,18 @@ if (splitSectionIndex > 0) {
 	</head>
     
 	<body>
-		<PageHeader/>
+		<PageHeader info={info}/>
 		<div id="print-container">
             <page size="A4" id="page1">
                 <div id={styleScope}>
-                    {page1.map((section:any, index:number) => 
-                        <SectionRender sectionJson={JSON.stringify(section)} sectionIndex={(index+1)}></SectionRender>  
-                    )}
+                    {page1.map((section:any, index:number) => {
+                    
+                        if(!section.extras)
+                            return <SectionRender sectionJson={JSON.stringify(section)} sectionIndex={(index+1)}></SectionRender>
+                        else
+                            return <SectionRenderExtras sectionJson={JSON.stringify(section)} sectionIndex={(index+1)} extras={section.extras}></SectionRenderExtras>
+                    
+                    })}
                 </div>
             </page>
             {splitSectionIndex > 0 &&

@@ -30,7 +30,7 @@ const title = "CV Template Builder";
 
 import {ImageCard} from '../components/extern/ImageCard';
 
-
+const testData = [1, 2, 3, 4];
 
 
 ---
@@ -38,6 +38,15 @@ import {ImageCard} from '../components/extern/ImageCard';
 <Layout title={title}>
 	<main>
 		<h1>{title}</h1>
+		<ul>
+			{testData.map((item, index) => {
+				if(index < 2) {
+					return <li>item</li>;
+				} else {
+					return <li>item x</li>;
+				}
+			})}
+		</ul>
 		<ul class="link-card-grid">
 			{pages.map((item) => 
 				// @ts-expect-error

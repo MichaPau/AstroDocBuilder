@@ -1,9 +1,37 @@
 ---
+interface Props {
+    info?: {dataFile: string, style:string};
+}
+
+const {info} = Astro.props;
 ---
 <style>
-    
+    .page-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: wrap;
+        width: 100%;
+        row-gap: 0em;
+        column-gap: 1em;
+    }
+    .a-header {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2em;
+        padding:0.25em;
+    }
+    .a-header:hover {
+        background-color: whitesmoke;
+    }
+    .info-row {
+        flex: 1 0 100%;
+        text-align: center;
+        margin: 0;
+    }
 </style>
 <div class="page-header">
     <a class="a-header" href="/">HOME</a>
     <a class="a-header" href="#" title="print page layout" onclick="window.print(); return false;">Print Layout</a>
+    {info && <p class="info-row">{info.dataFile} - {info.style}</p>}
 </div>
