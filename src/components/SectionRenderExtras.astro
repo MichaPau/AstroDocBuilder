@@ -16,18 +16,53 @@ interface Props {
     extras: Array<any>;
 }
 
+type ExtraImage = {
+    type: string;
+    position: number;
+    content: string;
+}
+
+type ExtraComp = {
+    type: string;
+    position: number;
+    componentId: string;
+    data: Array<any>;
+}
+type Extra = ExtraImage & ExtraComp;
 
 const components = {
    SocialMediaList,
 };
+
+let contentList = section.content.slice();
+extras.map((extra:Extra) => {
+    contentList.splice(extra.position-1, 0, extra);
+});
+
 ---
 <section class:list={[sectionClass, section.classList]}>
     <h2>{section.title}</h2>
    
-    {section.content.map((contentItem:any, index:number) => {
+    {contentList.map((listItem:any) => {
+        if(listItem.type !== undefined) {
+            switch(listItem.type) {
+            case "image":
+                return <div id="extrahtml-container" set:html={listItem.content}></div>;
+                // break;
+            case "component":
+                const id = listItem.componentId;
+                const Component: AstroComponent = components[id as keyof AstroComponent];
+                return <Component data={listItem.data} id="extracomp-container"/>;
+                // break;
+            }
+        } else {
+            return <SectionItem itemJson={JSON.stringify(listItem)}></SectionItem>
+        }
+    })}
+    <!-- {section.content.map((contentItem:any, index:number) => {
         return <SectionItem itemJson={JSON.stringify(contentItem)}></SectionItem>
     })}
-    {extras.map((extra:any) => {
+    {extras.map((extra:Extra) => {
         switch(extra.type) {
             case "image":
                 return <div id="extrahtml-container" set:html={extra.content}></div>;
@@ -40,7 +75,7 @@ const components = {
 
             
         }
-    })}
+    })} -->
 
     {section.footnote && <p id="footnote">{section.footnote}</p>}
 </section>
